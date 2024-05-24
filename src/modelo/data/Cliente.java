@@ -16,6 +16,12 @@ public class Cliente {
 		DNI = dNI;
 		this.datosPersonales = datosPersonales;
 	}
+	public String getDatosPersonales() {
+		return datosPersonales;
+	}
+	public void setDatosPersonales(String datosPersonales) {
+		this.datosPersonales = datosPersonales;
+	}
 	public static float getDecuentoHabitual() {
 		return decuentoHabitual;
 	}
@@ -27,6 +33,9 @@ public class Cliente {
 	}
 	public void setHabitual(boolean habitual) {
 		this.habitual = habitual;
+	}
+	public boolean isEqualDNI(String dNI2) {
+		return DNI.equals(dNI2);
 	}
 	
 }

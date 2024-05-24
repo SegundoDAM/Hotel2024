@@ -25,7 +25,21 @@ public class GestionRecepcion {
 		almacenReservas = new AlmacenReservasOM(clientes);
 		almacenClientes = new AlmacenClientes(clientes);
 	}
-
+	/**
+	 * Sustituye la informacion personal de un cliente existente
+	 * @param DNI
+	 * @param datos los nuevos datos
+	 * @return true si ha podido modificar y false en caso contrario
+	 */
+	public boolean modificarDatosCliente(String DNI, String datos) {
+		Cliente resultado=almacenClientes.buscarCliente(DNI);
+		if(resultado!=null) {
+			resultado.setDatosPersonales(datos);
+			return true;
+		}
+		return false;
+	}
+	
 	public List<Habitacion> listarHabitacionesDisponibles(LocalDate fecha, int duracion, TipoHabitacion tipo) {
 		List<Habitacion> buscarHabitacionesDisponibles = almacenReservas.buscarHabitacionesDisponibles(fecha, duracion);
 		List<Habitacion> retorno = new ArrayList<>();
@@ -52,5 +66,8 @@ public class GestionRecepcion {
 			return reserva;
 		}
 		return null;
+	}
+	public Cliente buscarClientePorDNI(String dni) {
+		return almacenClientes.buscarCliente(dni);
 	}
 }

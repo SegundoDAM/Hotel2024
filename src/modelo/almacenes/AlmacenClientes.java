@@ -16,6 +16,14 @@ public class AlmacenClientes {
 	public void agregarCliente(Cliente cliente) {
 		clientes.add(cliente);
 	}
+
+	public Cliente buscarCliente(String dNI) {
+		for (Cliente cliente : clientes) {
+			if(cliente.isEqualDNI(dNI))
+				return cliente;
+		}
+		return null;
+	}
 	
 	
 	
